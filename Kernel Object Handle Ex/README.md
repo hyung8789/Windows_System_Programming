@@ -14,9 +14,7 @@
 
 	---
 
-	(HANDLE이란 무엇인가?)
-	: winnt.h에 void* 로 정의 된 Kernel Object가 생성 시 마다 윈도우가 할당하는 일련의 고유 숫자로서,
-	HANDLE을 통해 해당 Kernel Object에 접근
+	- HANDLE : winnt.h에 void* 로 정의 된 Kernel Object가 생성 시 마다 윈도우가 할당하는 일련의 고유 숫자로서, HANDLE을 통해 해당 Kernel Object에 접근
 
 	HANDLE			Kernel Object 			Resource
 	Pipe HANDLE	<->	Pipe Kernel Obj		<->	Pipe
