@@ -28,7 +28,7 @@ int _tmain(int argc, TCHAR* argv[])
 		//if (1 == 0)
 		{
 			for (DWORD i = 0; i < 10000; i++)
-				for (DWORD i = 0; i < 10000; i++)
+				for (DWORD j = 0; j < 10000; j++)
 				{
 					/***
 						Sleep으로 대기 시 현재 프로세스는 Blocked 상태로 변한다.

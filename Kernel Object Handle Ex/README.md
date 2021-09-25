@@ -1,6 +1,6 @@
 # Kernel Object HANDLE Ex
 ---
-#### < 프로세스 우선순위 변경 >
+## < 프로세스 우선순위 변경 >
 <b>프로세스, 스레드, 파일 등의 리소스들을 관리하기 위해 Kernel Object가 존재</b>
 
 	- Kernel Object : 커널에서 관리하는 중요한 정보를 담아둔 데이터 블록
@@ -35,7 +35,7 @@
 	5) 위 Fig 1) 프로세스 스케줄링 테스트 결과에 따라, 프로세스 스케줄링에 의해 'Priority1' 은 'Priority2' 보다 우선순위가 낮으므로, 거의 할당 받지 못함
 
 ---
-#### < Kernel Object와 HANDLE의 종속 관계 >
+## < Kernel Object와 HANDLE의 종속 관계 >
 <b>Kernel Object는 Windows 운영체제에 종속적</b>
 
 	- Kernel Object의 소멸 시점은 운영체제에 의해 결정
