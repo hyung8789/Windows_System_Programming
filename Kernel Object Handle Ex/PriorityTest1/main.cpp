@@ -12,8 +12,7 @@ int _tmain(int argc, TCHAR* argv[])
 	TCHAR command[] = _T("PriorityTest2.exe");
 
 	CreateProcess(
-		NULL,
-		command,
+		NULL, command,
 		NULL,
 		NULL,
 		TRUE,

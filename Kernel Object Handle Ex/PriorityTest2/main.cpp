@@ -5,7 +5,7 @@
 
 int _tmain(int argc, TCHAR* argv[])
 {
-	SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS); //PriorityTest2의 우선순위 높임
+	SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS); //'PriorityTest2' 의 우선순위 높임
 
 	while (1)
 	{

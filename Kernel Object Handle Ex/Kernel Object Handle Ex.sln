@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityTest1", "PriorityTe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityTest2", "PriorityTest2\PriorityTest2.vcxproj", "{2B3A76C5-415A-4BA1-BD28-BA43D131409B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KernelObjShareEx", "KernelObjShareEx\KernelObjShareEx.vcxproj", "{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{2B3A76C5-415A-4BA1-BD28-BA43D131409B}.Release|x64.Build.0 = Release|x64
 		{2B3A76C5-415A-4BA1-BD28-BA43D131409B}.Release|x86.ActiveCfg = Release|Win32
 		{2B3A76C5-415A-4BA1-BD28-BA43D131409B}.Release|x86.Build.0 = Release|Win32
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Debug|x64.ActiveCfg = Debug|x64
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Debug|x64.Build.0 = Debug|x64
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Debug|x86.ActiveCfg = Debug|Win32
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Debug|x86.Build.0 = Debug|Win32
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Release|x64.ActiveCfg = Release|x64
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Release|x64.Build.0 = Release|x64
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Release|x86.ActiveCfg = Release|Win32
+		{4680B2DB-F6B2-492D-B39F-C7ACFD80744E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
