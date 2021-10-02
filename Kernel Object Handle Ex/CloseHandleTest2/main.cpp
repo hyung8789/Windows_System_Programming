@@ -2,7 +2,12 @@
 #include <tchar.h>
 #include <windows.h>
 
-
+/// <summary>
+/// Kernel Object와 HANDLE의 종속 관계 예제 2
+/// </summary>
+/// <param name="argc">실행 시 인자 개수</param>
+/// <param name="argv">실행 시 인자</param>
+/// <returns>작업 상태</returns>
 int _tmain(int argc, TCHAR* argv[])
 {
 	DWORD count = 0;

@@ -2,10 +2,15 @@
 #include <tchar.h>
 #include <windows.h>
 
-
+/// <summary>
+/// 프로세스 우선순위 변경 예제 2
+/// </summary>
+/// <param name="argc">실행 시 인자 개수</param>
+/// <param name="argv">실행 시 인자</param>
+/// <returns>작업 상태</returns>
 int _tmain(int argc, TCHAR* argv[])
 {
-	SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS); //'PriorityTest2' 의 우선순위 높임
+	SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS); //자기자신('PriorityTest2')의 우선순위 높임
 
 	while (1)
 	{

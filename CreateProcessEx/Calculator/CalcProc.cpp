@@ -54,18 +54,20 @@ USER_INPUT_LOOP:
 			&pInfo, 
 			sizeof(pInfo)); //프로세스 정보 초기화
 
+		/***
+			계산기 프로세스 실행 시점에 해당 계산기의 Kernel Object의 Usage Count : 2
+			그 뒤 핸들을 바로 반환하므로, Usage Count : 1
+			계산기 종료 시 Usage Count : 0이 되므로, Kernel Object는 바로 소멸
+		***/
+
 		CreateProcess(
-			NULL,
-			command,
-			NULL,
-			NULL,
-			TRUE,
-			0, //별도의 계산기 응용 프로그램을 실행
-			NULL,
-			NULL,
-			&sInfo,
-			&pInfo
+			NULL, command, NULL, NULL,
+			TRUE, 0, NULL, NULL,
+			&sInfo, &pInfo
 		);
+
+		CloseHandle(pInfo.hProcess);
+		CloseHandle(pInfo.hThread);
 
 		break;
 
