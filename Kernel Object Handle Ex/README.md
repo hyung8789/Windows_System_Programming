@@ -64,7 +64,7 @@
     1) 'CloseHandleTest1' 은 'CloseHandleTest2' 를 실행
     2) 'CloseHandleTest1' 는 'CloseHandleTest2' 프로세스가 종료되기 전 'CloseHandleTest2' 핸들 반환
     3) 위 Fig 3) Handle을 통한 Kernel Object 접근 및 테스트 결과 2에 따라, 핸들을 운영체제에 반환하였지만 'CloseHandleTest2' 프로세스는 자신의 작업을 모두 마치고 소멸함
-    4) 즉, 핸들을 반환한다고 해서 Kernel Object가 소멸되지 않았음을 의미함
+    4) 즉, 핸들을 반환한다고 해서 무조건적으로 Kernel Object가 소멸되지 않았음을 의미함
 
 ---
 ## < Kernel Object와 Usage Count >
@@ -72,7 +72,7 @@
 
     - 앞서 Kernel Object의 소멸 시점은 운영체제에 의해 결정된다고 하였을 때, 프로세스가 종료 시 해당 프로세스에 관련 된 Kernel Object가 동시에 소멸되는가?
     - 자식 프로세스가 종료될 때 Kernel Object도 동시에 소멸될 시 부모 프로세스는 자식 프로세스의 종료 코드를 얻을 수 없다.
-    - Windows가 Kernel Object 소멸시기를 결정 시 해당 Kernel Object를 참조하는 대상 시 하나도 없을 때 소멸시킨다.
+    - Windows가 Kernel Object 소멸시기를 결정 시 해당 Kernel Object를 참조하는 대상이 하나도 없을 때 소멸시킨다.
 	
 	---
 	
@@ -85,9 +85,11 @@
 <p align="center"><b><u>Fig 4) Handle을 통한 Kernel Object 접근 및 테스트 결과 3</u></b></p>
 
 	1) 부모 프로세스인 'OperationStateParent' 는 자식 프로세스인 'OperationStateChild' 를 실행
-	(CreateProcess 시점에 부모 프로세스는 자식 프로세스 Kernel Object 접근을 위한 HANDLE을 얻으며, 자식 프로세스는 자기 자신의 Kernel Object를 참조하므로 자식 프로세스 생성 시점에 자식 프로세스의 Usage Count : 2)
-	2) 'OperationStateChild' 는 사용자로부터 입력을 받아 연산 수행 후 화면에 출력 및 작업상태 반환
-	3) 'OperationStateParent' 는 'OperationStateChild' 가 종료 시 까지 대기 후 작업 상태 출력
-	(자식 프로세스인 'OperationStateChild' 가 종료 되었지만, 부모 프로세스인 'OperationStateParent'가 Handle을 통해 자식 프로세스에 대한 커널 오브젝트를 아직 참조중이므로, Usage Count = 1 이 후, Handle 반환 시 Usage Count = 0)
-	
+	2) CreateProcess 시점에 부모 프로세스는 자식 프로세스 Kernel Object 접근을 위한 HANDLE을 얻으며, 자식 프로세스는 자기 자신의 Kernel Object를 참조하므로 자식 프로세스 생성 시점에 자식 프로세스의 Usage Count : 2
+	3) 'OperationStateChild' 는 사용자로부터 입력을 받아 연산 수행 후 화면에 출력 및 작업상태 반환 및 종료
+	4) 작업상태 반환 및 종료 시 자식 프로세스 Kernel Object의 Usage Count : 1
+	5) 'OperationStateParent' 는 'OperationStateChild' 가 종료 시 까지 대기 후 작업 상태 출력
+	6) 자식 프로세스인 'OperationStateChild' 가 종료 되었지만, 부모 프로세스인 'OperationStateParent'가 Handle을 통해 자식 프로세스에 대한 커널 오브젝트를 아직 참조중이므로, Usage Count : 1 이 후, 부모 프로세스에서 Handle 반환 시 Usage Count : 0
+	7) Usage Count가 0이 되었으므로, 해당 자식 프로세스와 관련 된 Kenel Object 소멸
+
 ---
