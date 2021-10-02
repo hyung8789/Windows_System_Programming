@@ -86,10 +86,10 @@
 
 	1) 부모 프로세스인 'OperationStateParent' 는 자식 프로세스인 'OperationStateChild' 를 실행
 	2) CreateProcess 시점에 부모 프로세스는 자식 프로세스 Kernel Object 접근을 위한 HANDLE을 얻으며, 자식 프로세스는 자기 자신의 Kernel Object를 참조하므로 자식 프로세스 생성 시점에 자식 프로세스의 Usage Count : 2
-	3) 'OperationStateChild' 는 사용자로부터 입력을 받아 연산 수행 후 화면에 출력 및 작업상태 반환 및 종료
-	4) 작업상태 반환 및 종료 시 자식 프로세스 Kernel Object의 Usage Count : 1
+	3) 'OperationStateChild' 는 사용자로부터 입력을 받아 연산 수행 후 화면에 출력 및 작업 상태 반환 및 종료
+	4) 작업 상태 반환 및 종료 시 자식 프로세스 Kernel Object의 Usage Count : 1
 	5) 'OperationStateParent' 는 'OperationStateChild' 가 종료 시 까지 대기 후 작업 상태 출력
 	6) 자식 프로세스인 'OperationStateChild' 가 종료 되었지만, 부모 프로세스인 'OperationStateParent'가 Handle을 통해 자식 프로세스에 대한 커널 오브젝트를 아직 참조중이므로, Usage Count : 1 이 후, 부모 프로세스에서 Handle 반환 시 Usage Count : 0
-	7) Usage Count가 0이 되었으므로, 해당 자식 프로세스와 관련 된 Kenel Object 소멸
+	7) Usage Count가 0이 되었으므로, 해당 자식 프로세스와 관련 된 Kernel Object 소멸
 
 ---
