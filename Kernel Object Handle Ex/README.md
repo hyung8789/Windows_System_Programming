@@ -46,9 +46,9 @@
 	(PROCESS_INFORMATION 구조체)
 	https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/ns-processthreadsapi-process_information
 
-	- 프로세스 핸들 (hProcess) : 프로세스의 Kernel Object를 가리키기 위한 것
+	- 프로세스 HANDLE (hProcess) : 프로세스의 Kernel Object를 가리키기 위한 것
 	- 프로세스 ID (dwProcessId) : 프로세스 간 구분을 위한 ID
-	- 쓰레드 핸들 및 ID (hThread, dwThreadId) : 프로세스 내부적으로 경량 프로세스(쓰레드)를 위한 핸들 및 ID 
+	- 쓰레드 HANDLE 및 ID (hThread, dwThreadId) : 프로세스 내부적으로 경량 프로세스(쓰레드)를 위한 HANDLE 및 ID 
 
 <p align="center"> <img src="./res/KernelObjShare_result.PNG"></p>
 <p align="center"><b><u>Fig 2) Handle을 통한 Kernel Object 접근 및 테스트 결과 1</u></b></p>
@@ -62,9 +62,9 @@
 <p align="center"><b><u>Fig 3) Handle을 통한 Kernel Object 접근 및 테스트 결과 2</u></b></p>
 
     1) 'CloseHandleTest1' 은 'CloseHandleTest2' 를 실행
-    2) 'CloseHandleTest1' 는 'CloseHandleTest2' 프로세스가 종료되기 전 'CloseHandleTest2' 핸들 반환
-    3) 위 Fig 3) Handle을 통한 Kernel Object 접근 및 테스트 결과 2에 따라, 핸들을 운영체제에 반환하였지만 'CloseHandleTest2' 프로세스는 자신의 작업을 모두 마치고 소멸함
-    4) 즉, 핸들을 반환한다고 해서 무조건적으로 Kernel Object가 소멸되지 않았음을 의미함
+    2) 'CloseHandleTest1' 는 'CloseHandleTest2' 프로세스가 종료되기 전 'CloseHandleTest2' HANDLE 반환
+    3) 위 Fig 3) Handle을 통한 Kernel Object 접근 및 테스트 결과 2에 따라, HANDLE을 운영체제에 반환하였지만 'CloseHandleTest2' 프로세스는 자신의 작업을 모두 마치고 소멸함
+    4) 즉, HANDLE을 반환한다고 해서 무조건적으로 Kernel Object가 소멸되지 않았음을 의미함
 
 ---
 ## < Kernel Object와 Usage Count >
