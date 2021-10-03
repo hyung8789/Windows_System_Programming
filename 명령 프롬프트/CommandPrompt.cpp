@@ -17,24 +17,7 @@ DWORD CmdArgvProcessing(int argc, TCHAR** argv)
 /// <returns>분리 된 토큰 개수</returns>
 DWORD CmdReadTokenize()
 {
-	static TCHAR seps[] = _T(" ,\t\n"); //구분자
-	static TCHAR ERROR_MSG[] = _T("'%s'은(는) 실행할 수 있는 프로그램이 아닙니다.\n");
-
-	TCHAR inputCmdString[MAX_STR_LEN] = { NULL, }; //입력받은 명령어
-	TCHAR* token = NULL;
-	TCHAR* context = NULL; //분리 된 문자열에 대한 두 번째 문자열의 시작 주소
-
-	int cmdTokenIndex = 0;
-
-	_fputts(_T("Enter Command >>"), stdout);
-	_getts_s(inputCmdString, MAX_STR_LEN - 1);
-	token = _tcstok_s(inputCmdString, seps, &context); //구분자로 분리
-
-	while (token != NULL)
-	{
-		_tcscpy_s(cmdTokenList[cmdTokenIndex++], StrLower(token));
-		token = _tcstok_s(NULL, seps, &context);
-	}
+	
 
 	return 0;
 }
@@ -46,8 +29,8 @@ DWORD CmdReadTokenize()
 /// <returns>if exit entered return COMPLETE, else return SUCCESS</returns>
 DWORD CmdProcessing()
 {
-	static TCHAR seps[] = _T(" ,\t\n"); //구분자
-	static TCHAR ERROR_MSG[] = _T("'%s'은(는) 실행할 수 있는 프로그램이 아닙니다.\n");
+	static const TCHAR seps[] = _T(" ,\t\n"); //구분자
+	static const TCHAR ERROR_MSG[] = _T("'%s'은(는) 실행할 수 있는 프로그램이 아닙니다.\n");
 
 	TCHAR inputCmdString[MAX_STR_LEN] = { NULL, }; //입력받은 명령어
 	TCHAR* token = NULL;
@@ -98,7 +81,7 @@ DWORD CmdProcessing()
 /// <summary>
 /// 문자열 내의 모든 대문자를 소문자로 변경
 /// </summary>
-/// <param name="srcStr">원본 문자열</param>
+/// <param name="srcStr">원본 문자열 (editable)</param>
 /// <returns>변경 된 문자열</returns>
 TCHAR* StrLower(TCHAR* srcStr)
 {
