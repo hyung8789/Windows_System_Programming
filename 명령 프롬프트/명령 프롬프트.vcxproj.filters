@@ -18,15 +18,33 @@
     <ClInclude Include="Core.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CommandPrompt.h">
+    <ClInclude Include="CmdPrompt.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdToken.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdType.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CommandPrompt.cpp">
+    <ClCompile Include="CmdPrompt.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdToken.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdType.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

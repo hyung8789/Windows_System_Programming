@@ -1,0 +1,3 @@
+C:\Users\김형준\OneDrive - 강원대학교\Repos\winProgramming\명령 프롬프트\x64\Debug\명령 프롬프트.exe
+C:\Users\김형준\OneDrive - 강원대학교\Repos\winProgramming\명령 프롬프트\x64\Debug\명령 프롬프트.pdb
+C:\Users\김형준\Documents\winProgramming\명령 프롬프트\x64\Debug\명령 프롬프트.exe

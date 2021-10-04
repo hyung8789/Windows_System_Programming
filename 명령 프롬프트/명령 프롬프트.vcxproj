@@ -139,12 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CommandPrompt.h" />
+    <ClInclude Include="CmdToken.h" />
+    <ClInclude Include="CmdPrompt.h" />
+    <ClInclude Include="CmdType.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CommandPrompt.cpp" />
+    <ClCompile Include="CmdPrompt.cpp" />
+    <ClCompile Include="CmdToken.cpp" />
+    <ClCompile Include="CmdType.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

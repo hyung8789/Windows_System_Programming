@@ -1,0 +1,2 @@
+﻿  명령 프롬프트 단위 테스트.cpp
+C:\Users\김형준\Documents\winProgramming\명령 프롬프트\명령 프롬프트 단위 테스트\명령 프롬프트 단위 테스트.cpp(4,10): fatal error C1083: 포함 파일을 열 수 없습니다. '../CommandPrompt.cpp': No such file or directory
