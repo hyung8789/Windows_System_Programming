@@ -3,14 +3,14 @@
 /// <summary>
 /// 명령어 타입의 문자열 반환
 /// </summary>
-/// <param name="index">명령어 타입의 인덱스</param>
+/// <param name="srcCmdType">명령어 타입</param>
 /// <returns>명령어 타입 문자열</returns>
-inline const TCHAR* CMD_TYPE_PARSER::GetStringFromCmdType(int index)
+inline const TCHAR* CMD_TYPE_PARSER::GetStringFromCmdType(CMD_TYPE srcCmdType)
 {
-	if (index >= (int)CMD_TYPE::NUM_OF_CMD_TYPE)
+	if (srcCmdType < CMD_TYPE::START || srcCmdType >= CMD_TYPE::NUM_OF_CMD_TYPE)
 		return NULL;
 
-	return cmdTypeString[index];
+	return cmdTypeString[(const int)srcCmdType]; //명령어 타입에 해당하는 문자열 반환
 }
 
 /// <summary>
@@ -22,9 +22,9 @@ CMD_TYPE CMD_TYPE_PARSER::GetCmdTypeFromString(const TCHAR* srcCmd)
 {
 	for (int i = 0; i < (int)CMD_TYPE::NUM_OF_CMD_TYPE; i++) //명령어 타입 순차 탐색
 	{
-		if (_tcscmp(srcCmd, GetStringFromCmdType(i)) == 0)
+		if (_tcscmp(srcCmd, GetStringFromCmdType((CMD_TYPE)i)) == 0)
 			return (CMD_TYPE)i;
 	}
 
-	return CMD_TYPE::NONE_CMD_TYPE; //명령어 타입이 아닐 경우
+	return CMD_TYPE::NONE_CMD_TYPE; //명령어가 아닌 경우
 }

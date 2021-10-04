@@ -11,6 +11,8 @@ CMD_PROMPT::~CMD_PROMPT()
 
 void CMD_PROMPT::Run()
 {
+	//TODO : 사용자 입력 및 토큰 분리, 명령어 토큰 생성 후 이벤트 호출
+
 	static const TCHAR seps[] = _T(" ,\t\n"); //구분자
 
 	TCHAR inputCmdString[MAX_STR_LEN] = { NULL, }; //입력받은 명령어
@@ -22,6 +24,23 @@ void CMD_PROMPT::Run()
 	_fputts(_T("Enter Command >>"), stdout);
 	_getts_s(inputCmdString, MAX_STR_LEN - 1);
 	token = _tcstok_s(inputCmdString, seps, &context); //구분자로 분리
+
+	/***
+		< 사용자로부터의 명령어 입력 예시 >
+
+		1) echo test
+		: 화면에 test 출력
+
+		2) start echo test
+		: 새로운 명령어 프롬프트를 실행 후 해당 명령 프롬프트에서 화면에 test 출력
+
+		3) start start echo test
+		: 새로운 명령 프롬프트 실행, 해당 명령 프롬프트에서 다시 새로운 명령 프롬프트 실행
+		마지막 명령 프롬프트에서 화면에 test 출력
+
+		4) echo test start
+		: 화면에 test 출력 후 새로운 명령 프롬프트 실행
+	 ***/
 
 	while (token != NULL)
 	{
@@ -36,7 +55,7 @@ void CMD_PROMPT::Run()
 
 void CMD_PROMPT::CmdArgvProc(int argc, TCHAR** argv)
 {
-	
+	//TODO : 시작 인자 처리
 }
 
 /// <summary>
@@ -45,6 +64,8 @@ void CMD_PROMPT::CmdArgvProc(int argc, TCHAR** argv)
 /// <param name="srcCmdToken">명령어 토큰</param>
 void CMD_PROMPT::CmdEventProc(CMD_TOKEN srcCmdToken)
 {
+	//TODO : 명령어 이벤트 처리
+
 	static const TCHAR ERROR_MSG[] = _T("'%s'은(는) 실행할 수 있는 프로그램이 아닙니다.\n");
 	TCHAR cmdStringWithOptions[MAX_STR_LEN] = { NULL, };
 	TCHAR subArgs[MAX_STR_LEN] = { NULL, };

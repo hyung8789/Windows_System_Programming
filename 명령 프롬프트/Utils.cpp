@@ -30,9 +30,9 @@ TCHAR* StrLower(TCHAR* srcStr)
 const TCHAR* GetSelfProcessNameWithExt()
 {
 	static TCHAR selfProcessName[FILENAME_MAX] = { NULL, };
-	static BOOL isCalled = false; //호출 여부
+	static BOOL isSelfProcessNameAssigned = false; //프로세스 이름 할당 여부
 
-	if (!isCalled)
+	if (!isSelfProcessNameAssigned)
 	{
 		const TCHAR seps[] = _T("\\"); //구분자
 		TCHAR* token = NULL;
@@ -55,7 +55,7 @@ const TCHAR* GetSelfProcessNameWithExt()
 
 		_tcscpy_s(selfProcessName, token);
 
-		isCalled = true;
+		isSelfProcessNameAssigned = true;
 	}
 
 	return selfProcessName;
