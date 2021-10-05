@@ -3,7 +3,7 @@
 
 // CmdToken.cpp
 
-enum class CMD_TOKEN_FLAG : const BOOL
+enum class CMD_TOKEN_STATE : const BOOL //명령어 토큰 상태
 {
 	//3가지 상태에 대하여 2^2 = 4, 2비트 필요
 

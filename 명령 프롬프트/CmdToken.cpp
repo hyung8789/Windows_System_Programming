@@ -22,8 +22,8 @@ void CMD_TOKEN::ClearAll()
 {
 	this->_cmdTokenFlags =
 	{
-		(BOOL)CMD_TOKEN_FLAG::NOT_ASSIGNED,
-		(BOOL)CMD_TOKEN_FLAG::NOT_ASSIGNED
+		(BOOL)CMD_TOKEN_STATE::NOT_ASSIGNED,
+		(BOOL)CMD_TOKEN_STATE::NOT_ASSIGNED
 	};
 
 	this->_cmdType = CMD_TYPE::OUT_OF_RANGE;
@@ -82,7 +82,7 @@ CMD_SUB_ARGS_ASSIGN_PROC:
 /// </summary>
 enum CMD_TYPE CMD_TOKEN::GetCmdTypeOnce()
 {
-	if (this->_cmdTokenFlags._cmdTypeFlag == (const BOOL)CMD_TOKEN_FLAG::OUT_DATED) //다시 읽기 방지
+	if (this->_cmdTokenFlags._cmdTypeFlag == (const BOOL)CMD_TOKEN_STATE::OUT_DATED) //다시 읽기 방지
 		ThrowException(EX::ACCESSED_OUT_DATED_CMD_TOKEN, _T("만료 된 토큰 접근"));
 
 	return this->_cmdType;
@@ -93,7 +93,7 @@ enum CMD_TYPE CMD_TOKEN::GetCmdTypeOnce()
 /// </summary>
 const TCHAR* CMD_TOKEN::GetCmdSubArgsOnce()
 {
-	if (this->_cmdTokenFlags._cmdSubArgsFlag == (const BOOL)CMD_TOKEN_FLAG::OUT_DATED) //다시 읽기 방지
+	if (this->_cmdTokenFlags._cmdSubArgsFlag == (const BOOL)CMD_TOKEN_STATE::OUT_DATED) //다시 읽기 방지
 		ThrowException(EX::ACCESSED_OUT_DATED_CMD_TOKEN, _T("만료 된 토큰 접근"));
 
 	return this->_cmdSubArgs;
