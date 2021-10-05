@@ -22,9 +22,8 @@ void CMD_TOKEN::ClearAll()
 {
 	this->_cmdTokenFlags =
 	{
-		(BOOL)CMD_TOKEN_STATE::INIT,
-		false,
-		false
+		(BOOL)CMD_TOKEN_FLAG::NOT_ASSIGNED,
+		(BOOL)CMD_TOKEN_FLAG::NOT_ASSIGNED
 	};
 
 	this->_cmdType = CMD_TYPE::OUT_OF_RANGE;
@@ -44,11 +43,15 @@ void CMD_TOKEN::GenerateToken(void* args)
 {
 	//TODO : 명령어 토큰 생성 작업
 
-	if (!this->_cmdTokenFlags._isCmdTypeAssigned)
-		goto CMD_TYPE_ASSIGN_PROC;
-	else if (!this->_cmdTokenFlags._isCmdSubArgsAssigned)
-		goto CMD_SUB_ARGS_ASSIGN_PROC;
-	else
+	/***
+		< 현재 플래그 값에 따른 이벤트 처리 >
+
+		_cmdTypeFlag |  _cmdSubArgsFlag | event proc
+		NOT_ASSIGNED	NOT_ASSIGNED	 cmdType 할당
+		NOT_ASSIGNED	UPDATED			 오류
+		UPDATED			NOT_ASSIGNED	 cmdSubArgs 할당
+		UPDATED			UPDATED			 오류 (이미 모두 할당 완료 된 상태)
+	***/
 
 	///명령어 토큰이 사용 됨 상태는 언제 누가 변경시켜야 하는가?
 ///명령어 프롬프트의 이벤트 처리 시 명령어 토큰의 명령어 타입과 인자를 읽는 시점에 
@@ -66,62 +69,32 @@ CMD_TYPE_ASSIGN_PROC:
 
 	}
 
-	this->_cmdTokenFlags._isCmdTypeAssigned = true;
 
 
 CMD_SUB_ARGS_ASSIGN_PROC:
 	_tcscpy_s(this->_cmdSubArgs, (const TCHAR*)args); //명령어에 대한 하위 인자 복사
-	this->_cmdTokenFlags._isCmdSubArgsAssigned = true;
 
 
-	
 }
 
 /// <summary>
-/// 명령어 토큰 플래그 반환
+/// 명령어 타입 반환
 /// </summary>
-struct CMD_TOKEN_FLAGS CMD_TOKEN::GetCmdTokenFlags()
+enum CMD_TYPE CMD_TOKEN::GetCmdTypeOnce()
 {
-	return this->_cmdTokenFlags;
-}
+	if (this->_cmdTokenFlags._cmdTypeFlag == (const BOOL)CMD_TOKEN_FLAG::OUT_DATED) //다시 읽기 방지
+		ThrowException(EX::ACCESSED_OUT_DATED_CMD_TOKEN, _T("만료 된 토큰 접근"));
 
-/// <summary>
-/// 명령어 타입 반환 
-/// </summary>
-enum CMD_TYPE CMD_TOKEN::GetCmdType()
-{
 	return this->_cmdType;
 }
 
 /// <summary>
 /// 명령어 하위 인자 반환
 /// </summary>
-const TCHAR* CMD_TOKEN::GetCmdSubArgs()
+const TCHAR* CMD_TOKEN::GetCmdSubArgsOnce()
 {
+	if (this->_cmdTokenFlags._cmdSubArgsFlag == (const BOOL)CMD_TOKEN_FLAG::OUT_DATED) //다시 읽기 방지
+		ThrowException(EX::ACCESSED_OUT_DATED_CMD_TOKEN, _T("만료 된 토큰 접근"));
+
 	return this->_cmdSubArgs;
-}
-
-/// <summary>
-/// 명령어 토큰 플래그 이벤트 처리
-/// </summary>
-void CMD_TOKEN::CmdTokenFlagsEventProc()
-{
-	//TODO : 플래그 이벤트 처리 수정
-
-	switch (this->_cmdTokenFlags._cmdTokenState)
-	{
-	case (const BOOL)CMD_TOKEN_STATE::INIT:
-		this->_cmdTokenFlags._cmdTokenState = (const BOOL)CMD_TOKEN_STATE::INCOMPLETE;
-		break;
-
-	case (const BOOL)CMD_TOKEN_STATE::INCOMPLETE:
-		if (this->_cmdTokenFlags._isCmdTypeAssigned &&
-			this->_cmdTokenFlags._isCmdSubArgsAssigned)
-			this->_cmdTokenFlags._cmdTokenState = (const BOOL)CMD_TOKEN_STATE::COMPLETE;
-		break;
-
-	case (const BOOL)CMD_TOKEN_STATE::COMPLETE:
-	case (const BOOL)CMD_TOKEN_STATE::USED:
-		return;
-	}
 }

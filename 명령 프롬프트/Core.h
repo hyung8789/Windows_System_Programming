@@ -11,6 +11,7 @@
 #define MAX_STR_LEN 256 //최대 문자열 길이
 #define MAX_CMD_TOKEN_COUNT 10 //최대 토큰 개수
 
+#include "ExceptionHandler.h"
 #include "CmdType.h"
 #include "CmdPrompt.h"
 #include "CmdToken.h"

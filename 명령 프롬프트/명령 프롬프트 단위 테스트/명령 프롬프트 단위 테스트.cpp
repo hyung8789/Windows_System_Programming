@@ -1,7 +1,6 @@
 ﻿#include "pch.h"
 #include "CppUnitTest.h"
 
-#include "../CommandPrompt.cpp"
 #include "../main.cpp"
 #include "../Utils.cpp"
 

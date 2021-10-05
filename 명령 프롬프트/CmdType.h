@@ -1,5 +1,5 @@
-#ifndef _CMDTYPE_
-#define _CMDTYPE_
+#ifndef _CMDTYPE_H_
+#define _CMDTYPE_H_
 
 // CmdType.cpp
 

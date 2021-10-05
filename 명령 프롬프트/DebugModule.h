@@ -1,5 +1,5 @@
-#ifndef _DEBUGMODULE_
-#define _DEBUGMODULE_
+#ifndef _DEBUGMODULE_H_
+#define _DEBUGMODULE_H_
 
 #define DEBUG_MODE
 

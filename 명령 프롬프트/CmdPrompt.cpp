@@ -76,7 +76,7 @@ void CMD_PROMPT::CmdEventProc(CMD_TOKEN srcCmdToken)
 
 	sInfo.cb = sizeof(sInfo);
 
-	switch(srcCmdToken.GetCmdType())
+	switch(srcCmdToken.GetCmdTypeOnce())
 	{
 	case CMD_TYPE::EXIT:
 		_fputts(_T("명령어 처리를 종료합니다.\n"), stdout);
