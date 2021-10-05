@@ -20,7 +20,10 @@ inline const TCHAR* CMD_TYPE_PARSER::GetStringFromCmdType(CMD_TYPE srcCmdType)
 /// <returns>명령어 타입</returns>
 CMD_TYPE CMD_TYPE_PARSER::GetCmdTypeFromString(const TCHAR* srcCmd)
 {
-	for (int i = 0; i < (int)CMD_TYPE::NUM_OF_CMD_TYPE; i++) //명령어 타입 순차 탐색
+	if (srcCmd == NULL)
+		ThrowException(EX::NULL_INPUT_CMD);
+
+	for (int i = (int)CMD_TYPE::START; i < (int)CMD_TYPE::NUM_OF_CMD_TYPE; i++) //명령어 타입 순차 탐색
 	{
 		if (_tcscmp(srcCmd, GetStringFromCmdType((CMD_TYPE)i)) == 0)
 			return (CMD_TYPE)i;

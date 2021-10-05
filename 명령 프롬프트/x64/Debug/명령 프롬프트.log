@@ -1,1 +1,12 @@
-﻿  명령 프롬프트.vcxproj -> C:\Users\김형준\Documents\winProgramming\명령 프롬프트\x64\Debug\명령 프롬프트.exe
+﻿  CmdPrompt.cpp
+C:\Users\김형준\Desktop\github\winProgramming\명령 프롬프트\CmdPrompt.cpp(95,22): warning C4101: 'pInfo' :참조되지 않은 지역 변수입니다.
+  CmdToken.cpp
+C:\Users\김형준\Desktop\github\winProgramming\명령 프롬프트\CmdToken.cpp(41,21): warning C4102: 'CMD_TYPE_ASSIGN_PROC': 참조되지 않은 레이블입니다.
+C:\Users\김형준\Desktop\github\winProgramming\명령 프롬프트\CmdToken.cpp(58,25): warning C4102: 'CMD_SUB_ARGS_ASSIGN_PROC': 참조되지 않은 레이블입니다.
+  CmdType.cpp
+  DebugModule.cpp
+  ExceptionHandler.cpp
+  Utils.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+  명령 프롬프트.vcxproj -> C:\Users\김형준\Desktop\github\winProgramming\명령 프롬프트\x64\Debug\명령 프롬프트.exe

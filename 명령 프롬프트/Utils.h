@@ -3,6 +3,9 @@
 
 // Utils.cpp
 
-TCHAR* StrLower(TCHAR* srcStr);
-const TCHAR* GetSelfProcessNameWithExt();
+namespace utils
+{
+	TCHAR* StrLower(TCHAR* srcStr);
+	const TCHAR* GetSelfProcessNameWithExt();
+}
 #endif

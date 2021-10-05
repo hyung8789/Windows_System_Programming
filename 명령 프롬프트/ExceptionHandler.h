@@ -3,9 +3,9 @@
 
 typedef enum class EXCEPTION : const int
 {
-	ACCESSED_OUT_DATED_CMD_TOKEN = -1,
-	TEST = 2
+	EXPIRED_TOKEN_ACCESS = -1,
+	NULL_INPUT_CMD = -2
 }EX;
 
-void ThrowException(EXCEPTION ex, const TCHAR* exMsg);
+void ThrowException(EXCEPTION ex);
 #endif

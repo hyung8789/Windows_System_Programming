@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="srcStr">원본 문자열 (editable)</param>
 /// <returns>변경 된 문자열</returns>
-TCHAR* StrLower(TCHAR* srcStr)
+TCHAR* utils::StrLower(TCHAR* srcStr)
 {
 	if (srcStr == NULL)
 		return NULL;
@@ -27,7 +27,7 @@ TCHAR* StrLower(TCHAR* srcStr)
 /// 자기 자신의 프로세스 이름 (확장자 포함) 반환
 /// </summary>
 /// <returns>자기 자신의 프로세스 이름 (확장자 포함)</returns>
-const TCHAR* GetSelfProcessNameWithExt()
+const TCHAR* utils::GetSelfProcessNameWithExt()
 {
 	static TCHAR selfProcessName[FILENAME_MAX] = { NULL, };
 	static BOOL isSelfProcessNameAssigned = false; //프로세스 이름 할당 여부
