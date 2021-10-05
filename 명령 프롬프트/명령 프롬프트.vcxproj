@@ -143,12 +143,14 @@
     <ClInclude Include="CmdPrompt.h" />
     <ClInclude Include="CmdType.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="DebugModule.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CmdPrompt.cpp" />
     <ClCompile Include="CmdToken.cpp" />
     <ClCompile Include="CmdType.cpp" />
+    <ClCompile Include="DebugModule.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>

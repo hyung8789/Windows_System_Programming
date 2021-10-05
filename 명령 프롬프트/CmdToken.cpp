@@ -4,6 +4,10 @@
 CMD_TOKEN::CMD_TOKEN()
 {
 	this->ClearAll();
+
+#ifdef DEBUG_MODE
+	_fputts(_T("CMD_TOKEN Generated\n"), stdout);
+#endif
 }
 
 CMD_TOKEN::~CMD_TOKEN()
@@ -25,6 +29,10 @@ void CMD_TOKEN::ClearAll()
 
 	this->_cmdType = CMD_TYPE::OUT_OF_RANGE;
 	memset(this->_cmdSubArgs, NULL, sizeof(TCHAR) * MAX_STR_LEN);
+
+#ifdef DEBUG_MODE
+	_fputts(_T("CMD_TOKEN Cleared\n"), stdout);
+#endif
 }
 
 /// <summary>

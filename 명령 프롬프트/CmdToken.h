@@ -3,8 +3,6 @@
 
 // CmdToken.cpp
 
-#define CMD_TOKEN_STATE_INIT_VALUE (0x0)
-
 enum class CMD_TOKEN_STATE : const BOOL //명령어 토큰 상태
 {
 	//명령어 토큰 상태 관리에 대한 4비트(2^2 = 4) 필요

@@ -93,56 +93,52 @@ void CMD_PROMPT::CmdEventProc(CMD_TOKEN srcCmdToken)
 	}
 
 
-	else if (_tcscmp(_cmdTokenList[0], _T("start")) == 0)
-	{
-		if (cmdTokenIndex > 1)
-		{
-			for (int i = 1; i < cmdTokenIndex; i++)
-			{
-				_stprintf_s(subArgs, _T("%s %s"), subArgs, _cmdTokenList[i]);
+	//if (_tcscmp(_cmdTokenList[0], _T("start")) == 0)
+	//{
+	//	if (cmdTokenIndex > 1)
+	//	{
+	//		for (int i = 1; i < cmdTokenIndex; i++)
+	//		{
+	//			_stprintf_s(subArgs, _T("%s %s"), subArgs, _cmdTokenList[i]);
 
-			}
+	//		}
 
-			//_stprintf_s(cmdStringWithOptions, _T("%s %s"), selfProcessName, subArgs);
-		}
-		else //start만 입력
-		{
-			//	_stprintf_s(cmdStringWithOptions, _T("%s"), selfProcessName);
-		}
+	//		//_stprintf_s(cmdStringWithOptions, _T("%s %s"), selfProcessName, subArgs);
+	//	}
+	//	else //start만 입력
+	//	{
+	//		//	_stprintf_s(cmdStringWithOptions, _T("%s"), selfProcessName);
+	//	}
 
-		processCreationState =
-			CreateProcess(
-				NULL, cmdStringWithOptions, NULL, NULL,
-				TRUE, 0, NULL, NULL,
-				&sInfo, &pInfo
-			); //해당 명령어 수행
+	//	processCreationState =
+	//		CreateProcess(
+	//			NULL, cmdStringWithOptions, NULL, NULL,
+	//			TRUE, 0, NULL, NULL,
+	//			&sInfo, &pInfo
+	//		); //해당 명령어 수행
 
-		CloseHandle(pInfo.hProcess);
-		CloseHandle(pInfo.hThread);
-	}
-	else if (_tcscmp(_cmdTokenList[0], _T("echo")) == 0)
-	{
-
-	}
-	else //프로세스 생성
-	{
-		// https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfow
-		// https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
+	//	CloseHandle(pInfo.hProcess);
+	//	CloseHandle(pInfo.hThread);
+	//}
+	//else //프로세스 생성
+	//{
+	//	// https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfow
+	//	// https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
 
 
-		processCreationState =
-			CreateProcess(
-				NULL, _cmdTokenList[0], NULL, NULL,
-				TRUE, 0, NULL, NULL,
-				&sInfo, &pInfo
-			); //해당 명령어 수행
+	//	processCreationState =
+	//		CreateProcess(
+	//			NULL, _cmdTokenList[0], NULL, NULL,
+	//			TRUE, 0, NULL, NULL,
+	//			&sInfo, &pInfo
+	//		); //해당 명령어 수행
 
-		CloseHandle(pInfo.hProcess);
-		CloseHandle(pInfo.hThread);
+	//	CloseHandle(pInfo.hProcess);
+	//	CloseHandle(pInfo.hThread);
 
-		if (processCreationState == FALSE) //프로세스 생성 실패 시
-			_tprintf(ERROR_MSG, _cmdTokenList[0]);
-	}
+	//	if (processCreationState == FALSE) //프로세스 생성 실패 시
+	//		_tprintf(ERROR_MSG, _cmdTokenList[0]);
+	//}
 }
 
 /// <summary>

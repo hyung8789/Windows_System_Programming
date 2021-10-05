@@ -15,4 +15,5 @@
 #include "CmdPrompt.h"
 #include "CmdToken.h"
 #include "Utils.h"
+#include "DebugModule.h"
 #endif

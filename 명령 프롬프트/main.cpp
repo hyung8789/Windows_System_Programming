@@ -13,6 +13,9 @@ int _tmain(int argc, TCHAR* argv[])
 	
 	_tprintf_s(_T("%s\n"), GetSelfProcessNameWithExt());
 
+#ifdef DEBUG_MODE
+	RunDebugMode();
+#endif
 
 	return EXIT_SUCCESS;
 }
