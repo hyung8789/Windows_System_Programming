@@ -3,17 +3,17 @@
 
 // CmdPrompt.cpp
 
-class CMD_PROMPT
+class CmdPrompt
 {
 public:
-	CMD_PROMPT();
-	~CMD_PROMPT();
+	CmdPrompt();
+	~CmdPrompt();
 
 	void Run();
 	
 private:
 	void CmdArgvProc(int argc, TCHAR** argv);
-	void CmdEventProc(class CMD_TOKEN cmdToken);
+	void CmdEventProc(class CmdToken cmdToken);
 
 	void ClearTokenList();
 

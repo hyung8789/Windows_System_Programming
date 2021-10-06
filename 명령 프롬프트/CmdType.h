@@ -20,7 +20,7 @@ static const TCHAR* cmdTypeString[] = //명령어 타입 문자열 (명령어 타입과 1:1 대
 	_T("exit")
 };
 
-class CMD_TYPE_PARSER //명령어 타입 파서
+class CmdTypeParser //명령어 타입 파서
 {
 public:
 	static inline const TCHAR* GetStringFromCmdType(CMD_TYPE srcCmdType);

@@ -1,12 +1,12 @@
 #include "Core.h"
 
 
-CMD_TOKEN::CMD_TOKEN()
+CmdToken::CmdToken()
 {
 	this->ClearAll();
 }
 
-CMD_TOKEN::~CMD_TOKEN()
+CmdToken::~CmdToken()
 {
 
 }
@@ -14,9 +14,9 @@ CMD_TOKEN::~CMD_TOKEN()
 /// <summary>
 /// 모두 초기화
 /// </summary>
-void CMD_TOKEN::ClearAll()
+void CmdToken::ClearAll()
 {
-	this->_cmdTokenFlags = CMD_TYPE_NOT_ASSIGNED | CMD_SUBARGS_NOT_ASSIGNED;
+	this->_cmdTokenFlags = FALSE_BIT;
 	this->_cmdType = CMD_TYPE::OUT_OF_RANGE;
 	memset(this->_cmdSubArgs, NULL, sizeof(TCHAR) * MAX_STR_LEN);
 }
@@ -27,7 +27,7 @@ void CMD_TOKEN::ClearAll()
 /// </summary>
 /// <param name="args">명령어 토큰 생성 시 인자</param>
 /// <returns>명령어 토큰의 현재 상태</returns>
-unsigned char CMD_TOKEN::GenerateToken(void* args)
+unsigned char CmdToken::GenerateToken(void* args)
 {
 	//TODO : 명령어 토큰 생성 작업
 	//
@@ -45,7 +45,7 @@ CMD_TYPE_ASSIGN_PROC:
 		//TODO : 현재 토큰 상태에 따라 예외처리 추가
 	}
 
-	this->_cmdType = CMD_TYPE_PARSER::GetCmdTypeFromString((const TCHAR*)args); //명령어 타입 파싱하여 할당
+	this->_cmdType = CmdTypeParser::GetCmdTypeFromString((const TCHAR*)args); //명령어 타입 파싱하여 할당
 	// 명령어가 이미 할당되었지만 start start echo test와 같이 다시 명령어가 올 경우
 
 	if (this->_cmdType == CMD_TYPE::NONE_CMD_TYPE) //하위인자로처리
@@ -64,10 +64,10 @@ CMD_SUB_ARGS_ASSIGN_PROC:
 /// <summary>
 /// 명령어 타입 반환
 /// </summary>
-enum CMD_TYPE CMD_TOKEN::GetCmdTypeOnce()
+enum CMD_TYPE CmdToken::GetCmdTypeOnce()
 {
 	if (this->_cmdTokenFlags & CMD_TYPE_EXPIRED) //다시 읽기 방지
-		ThrowException(EX::EXPIRED_TOKEN_ACCESS);
+		exceptionhandler::ThrowException(exceptionhandler::EX::EXPIRED_TOKEN_ACCESS);
 
 	return this->_cmdType;
 }
@@ -75,10 +75,10 @@ enum CMD_TYPE CMD_TOKEN::GetCmdTypeOnce()
 /// <summary>
 /// 명령어 하위 인자 반환
 /// </summary>
-const TCHAR* CMD_TOKEN::GetCmdSubArgsOnce()
+const TCHAR* CmdToken::GetCmdSubArgsOnce()
 {
 	if (this->_cmdTokenFlags & CMD_SUBARGS_EXPIRED) //다시 읽기 방지
-		ThrowException(EX::EXPIRED_TOKEN_ACCESS);
+		exceptionhandler::ThrowException(exceptionhandler::EX::EXPIRED_TOKEN_ACCESS);
 
 	return this->_cmdSubArgs;
 }

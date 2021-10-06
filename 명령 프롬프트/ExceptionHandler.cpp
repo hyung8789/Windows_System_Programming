@@ -1,6 +1,6 @@
 #include "Core.h"
 
-void ThrowException(EXCEPTION ex)
+void exceptionhandler::ThrowException(EXCEPTION ex)
 {
 	exit((const int)ex);
 }

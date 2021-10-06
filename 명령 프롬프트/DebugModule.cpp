@@ -5,8 +5,8 @@
 /// </summary>
 void UnitTest_CmdToken()
 {
-	CMD_TOKEN cmdToken;
-	_tprintf_s(_T("%d\n"), cmdToken.GenerateToken(NULL));
+	
+	//_tprintf_s(_T("%d\n"), cmdToken.GenerateToken(NULL));
 }
 
 void UnitTest_소문자변환()
@@ -14,10 +14,10 @@ void UnitTest_소문자변환()
 	const TCHAR* expected = _T("test");
 	TCHAR buffer[] = _T("TeST");
 	const TCHAR* actual = utils::StrLower(buffer);
-	_tprintf_s(_T("%s, %s\n"), expected, actual);
+	_tprintf_s(_T("expected : %s, actual : %s\n"), expected, actual);
 
 	const TCHAR* actual2 = utils::StrLower(NULL);
-	_tprintf_s(_T("%c\n"), (actual2 == NULL) ? 'T' : 'F');
+	_tprintf_s(_T("actual2 null? : %c\n"), (actual2 == NULL) ? 'T' : 'F');
 }
 
 void RunDebugMode()

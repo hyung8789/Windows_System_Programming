@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="srcCmdType">명령어 타입</param>
 /// <returns>명령어 타입 문자열</returns>
-inline const TCHAR* CMD_TYPE_PARSER::GetStringFromCmdType(CMD_TYPE srcCmdType)
+inline const TCHAR* CmdTypeParser::GetStringFromCmdType(CMD_TYPE srcCmdType)
 {
 	if (srcCmdType < CMD_TYPE::START || srcCmdType >= CMD_TYPE::NUM_OF_CMD_TYPE)
 		return NULL;
@@ -18,10 +18,10 @@ inline const TCHAR* CMD_TYPE_PARSER::GetStringFromCmdType(CMD_TYPE srcCmdType)
 /// </summary>
 /// <param name="srcCmd">입력받은 명령어</param>
 /// <returns>명령어 타입</returns>
-CMD_TYPE CMD_TYPE_PARSER::GetCmdTypeFromString(const TCHAR* srcCmd)
+CMD_TYPE CmdTypeParser::GetCmdTypeFromString(const TCHAR* srcCmd)
 {
 	if (srcCmd == NULL)
-		ThrowException(EX::NULL_INPUT_CMD);
+		exceptionhandler::ThrowException(exceptionhandler::EX::NULL_INPUT_CMD);
 
 	for (int i = (int)CMD_TYPE::START; i < (int)CMD_TYPE::NUM_OF_CMD_TYPE; i++) //명령어 타입 순차 탐색
 	{

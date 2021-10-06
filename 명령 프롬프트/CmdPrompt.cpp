@@ -1,15 +1,15 @@
 #include "Core.h"
 
-CMD_PROMPT::CMD_PROMPT()
+CmdPrompt::CmdPrompt()
 {
 	this->ClearTokenList();
 }
 
-CMD_PROMPT::~CMD_PROMPT()
+CmdPrompt::~CmdPrompt()
 {
 }
 
-void CMD_PROMPT::Run()
+void CmdPrompt::Run()
 {
 	//TODO : 사용자 입력 및 토큰 분리, 명령어 토큰 생성 후 이벤트 호출
 
@@ -19,7 +19,7 @@ void CMD_PROMPT::Run()
 	TCHAR* token = NULL;
 	TCHAR* context = NULL; //분리 된 문자열에 대한 두 번째 문자열의 시작 주소
 
-	CMD_TOKEN cmdToken;
+	CmdToken cmdToken;
 
 	_fputts(_T("Enter Command >>"), stdout);
 	_getts_s(inputCmdString, MAX_STR_LEN - 1);
@@ -74,7 +74,7 @@ void CMD_PROMPT::Run()
 	}
 }
 
-void CMD_PROMPT::CmdArgvProc(int argc, TCHAR** argv)
+void CmdPrompt::CmdArgvProc(int argc, TCHAR** argv)
 {
 	//TODO : 시작 인자 처리
 }
@@ -83,7 +83,7 @@ void CMD_PROMPT::CmdArgvProc(int argc, TCHAR** argv)
 /// 명령어 이벤트 처리
 /// </summary>
 /// <param name="srcCmdToken">명령어 토큰</param>
-void CMD_PROMPT::CmdEventProc(CMD_TOKEN srcCmdToken)
+void CmdPrompt::CmdEventProc(CmdToken srcCmdToken)
 {
 	//TODO : 명령어 이벤트 처리
 	
@@ -165,7 +165,7 @@ void CMD_PROMPT::CmdEventProc(CMD_TOKEN srcCmdToken)
 /// <summary>
 /// 토큰 목록 및 인덱스 초기화
 /// </summary>
-void CMD_PROMPT::ClearTokenList()
+void CmdPrompt::ClearTokenList()
 {
 	for (int i = 0; i < MAX_CMD_TOKEN_COUNT; i++)
 		memset(this->_cmdTokenList[i], NULL, sizeof(TCHAR) * MAX_STR_LEN);

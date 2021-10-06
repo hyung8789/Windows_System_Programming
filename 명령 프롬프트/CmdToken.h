@@ -3,22 +3,30 @@
 
 // CmdToken.cpp
 
-//명령어 토큰 플래그 : DUMMY (4bit) | CMD_TYPE_FLAG (2bit) | CMD_SUBARGS_FLAG (2bit)
-#define CMD_TYPE_NOT_ASSIGNED (0x0) //미 할당, 0000(2)
-#define CMD_TYPE_ASSIGNED (0x4) //할당, 0100(2)
-#define CMD_TYPE_EXPIRED (0x8) //만료, 1000(2)
+/***
+	< CMD_TOKEN_FLAGS >
+	DUMMY (MSB, CMD_TYPE, 2bit) | ASSIGNED (CMD_TYPE, 1bit) | EXPIRED (CMD_TYPE, 1bit) |
+	DUMMY (CMD_SUBARGS, 2bit) | ASSIGNED (CMD_SUBARGS, 1bit) | EXPIRED (LSB, CMD_SUBARGS, 1bit)
+***/
 
-#define CMD_SUBARGS_NOT_ASSIGNED (0x0) //미 할당, 0000(2)
-#define CMD_SUBARGS_ASSIGNED (0x1) //할당, 0001(2)
-#define CMD_SUBARGS_EXPIRED (0x2) //만료, 0010(2)
+typedef unsigned char CMD_TOKEN_FLAGS;
 
-class CMD_TOKEN //명령어 토큰
+#define TRUE_BIT (0x1)
+#define FALSE_BIT (0x0)
+
+#define CMD_TYPE_ASSIGNED (0x20) //할당 상태, 0010 0000(2)
+#define CMD_TYPE_EXPIRED (0x10) //만료 상태, 0001 0000(2)
+
+#define CMD_SUBARGS_ASSIGNED (0x2) //할당 상태, 0000 0010(2)
+#define CMD_SUBARGS_EXPIRED (0x1) //만료 상태, 0000 0001(2)
+
+class CmdToken //명령어 토큰
 {
 public:
-	CMD_TOKEN();
-	~CMD_TOKEN();
+	CmdToken();
+	~CmdToken();
 	
-	unsigned char GenerateToken(void* arg);
+	CMD_TOKEN_FLAGS GenerateToken(void* arg);
 
 	CMD_TYPE GetCmdTypeOnce();
 	const TCHAR* GetCmdSubArgsOnce();
@@ -26,7 +34,7 @@ public:
 private:
 	void ClearAll();
 
-	unsigned char _cmdTokenFlags; //명령어 토큰 플래그
+	CMD_TOKEN_FLAGS _cmdTokenFlags; //명령어 토큰 플래그
 	CMD_TYPE _cmdType; //명령어 타입
 	TCHAR _cmdSubArgs[MAX_STR_LEN]; //해당 명령어에 대한 하위 인자
 };
