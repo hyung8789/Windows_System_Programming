@@ -23,7 +23,7 @@ static const TCHAR* cmdTypeString[] = //명령어 타입 문자열 (명령어 타입과 1:1 대
 class CmdTypeParser //명령어 타입 파서
 {
 public:
-	static inline const TCHAR* GetStringFromCmdType(CMD_TYPE srcCmdType);
+	static const TCHAR* GetStringFromCmdType(CMD_TYPE srcCmdType);
 	static CMD_TYPE GetCmdTypeFromString(const TCHAR* srcCmd);
 };
 #endif

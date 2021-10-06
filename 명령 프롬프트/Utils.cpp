@@ -54,7 +54,6 @@ const TCHAR* utils::GetSelfProcessNameWithExt()
 		}
 
 		_tcscpy_s(selfProcessName, token);
-
 		isSelfProcessNameAssigned = true;
 	}
 

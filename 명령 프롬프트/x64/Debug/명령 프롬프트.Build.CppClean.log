@@ -2,22 +2,28 @@ c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬
 c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\vc142.idb
 c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\utils.obj
 c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\main.obj
-c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\commandprompt.obj
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\vc142.pdb
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\vc142.idb
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\utils.obj
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\main.obj
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\commandprompt.obj
-c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.exe
-c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.ilk
-c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.pdb
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\cl.command.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\cl.read.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\cl.write.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link-cvtres.read.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link-cvtres.write.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link-rc.read.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link-rc.write.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.command.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.read.1.tlog
-c:\users\김형준\documents\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.write.1.tlog
+c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\cmdtype.obj
+c:\users\김형준\onedrive - 강원대학교\repos\winprogramming\명령 프롬프트\x64\debug\cmdtoken.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\vc142.pdb
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\vc142.idb
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\utils.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\debugmodule.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\cmdtype.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\cmdtoken.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\main.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\exceptionhandler.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\cmdprompt.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.exe
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.ilk
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.pdb
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\commandprompt.obj
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트 단위 테스트.ilk
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트 단위 테스트.exp
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트 단위 테스트.pdb
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\cl.command.1.tlog
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\cl.read.1.tlog
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\cl.write.1.tlog
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.command.1.tlog
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.delete.1.tlog
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.read.1.tlog
+c:\users\김형준\desktop\github\winprogramming\명령 프롬프트\x64\debug\명령 프롬프트.tlog\link.write.1.tlog

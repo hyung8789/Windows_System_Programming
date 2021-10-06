@@ -7,9 +7,11 @@ namespace exceptionhandler
 	{
 		NOT_USED_TOKEN_EXIST = -1,
 		WRONG_CMD_TYPE_FLAG = -2,
-		NOT_ASSIGNED_TOKEN_ACCESS = -3,
+		NOT_ASSIGNED_CMD_TYPE_ACCESS = -3,
 		EXPIRED_TOKEN_ACCESS = -4,
-		NULL_INPUT_CMD = -5
+		NULL_INPUT_CMD = -5,
+
+		TEMP = -100
 	}EX;
 
 	void ThrowException(EXCEPTION ex);

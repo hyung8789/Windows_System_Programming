@@ -26,7 +26,7 @@ public:
 	CmdToken();
 	~CmdToken();
 	
-	CMD_TOKEN_FLAGS GenerateToken(void* arg);
+	CMD_TOKEN_FLAGS GenerateToken(const void* arg);
 
 	CMD_TYPE GetCmdTypeOnce();
 	const TCHAR* GetCmdSubArgsOnce();
