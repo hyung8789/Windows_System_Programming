@@ -31,7 +31,7 @@
 	2) 'PriorityTest1' 는 'PriorityTest2'를 실행
 	3) 'PriorityTest2' 는 자신을 높은 프로세스 우선순위로 변경
 	4) 'PriorityTest1' 과 'PriorityTest2' 는 각각 화면에 출력하기 위한 작업을 수행
-	5) 위 Fig 1) 프로세스 스케줄링 테스트 결과에 따라, 프로세스 스케줄링에 의해 'Priority1' 은 'Priority2' 보다 우선순위가 낮으므로, 거의 할당 받지 못함
+	5) 위 Fig 1) 프로세스 스케줄링 테스트 결과에 따라, 프로세스 스케줄링에 의해 'PriorityTest1' 은 'PriorityTest2' 보다 우선순위가 낮으므로, 거의 할당 받지 못함
 
 ---
 ## < Kernel Object와 HANDLE의 종속 관계 >
@@ -53,7 +53,7 @@
 <p align="center"> <img src="./res/KernelObjShare_result.PNG"></p>
 <p align="center"><b><u>Fig 2) Handle을 통한 Kernel Object 접근 및 테스트 결과 1</u></b></p>
 
-	1) 'KernelObjShare' 은 'PriorityTest2' 를 실행 (단일 코어 실행 환경)
+	1) 'KernelObjShareEx' 은 'PriorityTest2' 를 실행 (단일 코어 실행 환경)
 	2) 'PriorityTest2' 는 자신을 높은 프로세스 우선순위로 변경 (최초 한 번)
 	3) 'KernelObjShareEx' 는 Busy Waiting 후 'PriorityTest2' 의 우선순위를 기존 우선순위로 낮춤
 	4) 위 Fig 2) Handle을 통한 Kernel Object 접근 및 테스트 결과 1에 따라, 프로세스 스케줄링에 의해 동일한 우선순위를 가지므로, 번갈아 가며 작업을 수행함
